@@ -1,7 +1,17 @@
-import { Inter } from "next/font/google";
+import { Inter, Readex_Pro } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const readex_pro = Readex_Pro({
+  subsets: ["latin"],
+  variable: "--font-readex-pro",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +21,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} ${readex_pro.className}`}>
+        {children}
+      </body>
     </html>
   );
 }
