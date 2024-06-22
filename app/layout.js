@@ -20,9 +20,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${readex_pro.className}`}>
-        {children}
+    <html lang="en" className={`${inter.variable} ${readex_pro.variable}`}>
+      <body>
+        <main id="app">
+          {children}
+        </main>
       </body>
     </html>
   );
