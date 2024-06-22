@@ -106,14 +106,13 @@ export default function Home() {
         TJEKLISTEN
       </h1>
 
-      <p className="text-center font-normal mt-12">
-        Svært ved at danne dig et overblik over din beredskabsliste?
-        <span className="text-orange-500"> Start her!</span>
-      </p>
+      <div className="mx-auto text-center font-normal mt-12 bg-orange-500 text-orange-950 p-4 md:w-1/2 -skew-x-12">
+        Svært ved at danne dig et overblik over din beredskabsliste? Start her!
+      </div>
 
       <div className="flex flex-col items-center gap-3 w-full md:w-1/3 mx-auto mt-12">
         {step === 0 && (
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center w-full gap-2">
             <label
               htmlFor="household"
               className="form-control-label"
