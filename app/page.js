@@ -37,6 +37,45 @@ export default function Home() {
       { type: "question", text: `${(householdSize || 0) * 3 * 3} liter drikkevand` },
       { type: "question", text: "Evt. vand til husdyr" },
     ],
+    [
+      { type: "title", text: "Mad" },
+      { type: "question", text: "Mad til tre døgn, der er langtidsholdbart og let at tilberede" },
+    ],
+    [
+      { type: "title", text: "Medicin og førstehjælp" },
+      { type: "question", text: "Nødvendig medicin for husstanden" },
+      { type: "question", text: "Førstehjælpskasse" },
+      { type: "question", text: "Evt. jodtabletter for personer under 40 år samt gravide og ammende" },
+    ],
+    [
+      { type: "title", text: "Hygiejneartikler" },
+      { type: "question", text: "Toiletpapir" },
+      { type: "question", text: "Hånddesinfektion" },
+      { type: "question", text: "Bleer, bind og/eller tamponer eller andet relevant for din husstand" },
+    ],
+    [
+      { type: "title", text: "Varme" },
+      { type: "question", text: "Tæpper" },
+      { type: "question", text: "Dyner" },
+      { type: "question", text: "Varmt tøj" },
+    ],
+    [
+      { type: "title", text: "Andre fornødenheder" },
+      { type: "question", text: "Powerbank eller batteripakke til f.eks. mobiltelefon" },
+      { type: "question", text: "Lommelygte" },
+      { type: "question", text: "Batterier" },
+      { type: "question", text: "Fysiske betalingskort (husk pinkode) og evt. kontanter i mønter og små sedler" },
+      { type: "question", text: "Stearinlys og tændstikker" },
+    ],
+    [
+      { type: "title", text: "Særlige behov" },
+      { type: "question", text: "Jeg bor ikke udsat ift. f.eks. oversvømmelse. Hvis jeg gør, har jeg taget højde for det" },
+      { type: "question", text: "Jeg kan hjælpe eller få hjælp af familie, naboer og venner" },
+    ],
+    [
+      { type: "title", text: "Kommunikation" },
+      { type: "question", text: "FM-radio, der kører på batterier/håndsving/solceller (eller evt. bilradio)" },
+    ],
   ]
 
   const handleNextStep = () => {
@@ -72,7 +111,7 @@ export default function Home() {
         <span className="text-orange-500"> Start her!</span>
       </p>
 
-      <div className="w-full md:w-1/3 mx-auto mt-12">
+      <div className="flex flex-col items-center gap-3 w-full md:w-1/3 mx-auto mt-12">
         {step === 0 && (
           <div className="flex flex-col items-center gap-2">
             <label
@@ -102,9 +141,9 @@ export default function Home() {
         {step === 1 && (
           <>
             {questionsArray.map((questions, index1) => (
-              <div key={index1} className="flex flex-col gap-2">
+              <div key={index1} className="flex flex-col gap-2 w-full">
                 {questions.map((question, index2) => (
-                  <div key={index1 + index2}>
+                  <div key={`question-${index1}-${index2}`}>
                     {question.type === "title" && (
                       <small className="font-semibold text-orange-500 w-full block text-center">
                         {question.text}
@@ -119,8 +158,8 @@ export default function Home() {
 
                         <input
                           type="checkbox"
-                          checked={answers[index1 + index2] || false}
-                          onChange={(e) => setAnswer(index1 + index2, e.target.checked)}
+                          checked={answers[`question-${index1}-${index2}`] || false}
+                          onChange={(e) => setAnswer(`question-${index1}-${index2}`, e.target.checked)}
                         />
                       </div>
                     )}
