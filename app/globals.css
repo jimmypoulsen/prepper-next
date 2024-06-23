@@ -32,7 +32,6 @@
   .form-control-label {
     @apply
       block
-      text-sm
       font-medium
       leading-6
     ;

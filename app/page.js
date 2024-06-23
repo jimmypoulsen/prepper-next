@@ -150,7 +150,7 @@ export default function Home() {
                     )}
 
                     {question.type === "question" && (
-                      <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center justify-between gap-2 border-b border-gray-800 pb-2">
                         <label className="form-control-label">
                           {question.text}
                         </label>
