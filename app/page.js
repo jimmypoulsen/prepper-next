@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react";
+import party from "party-js";
 
 export default function Home() {
   const [step, setStep] = useState(0);
@@ -86,17 +87,26 @@ export default function Home() {
     setStep(step + 1);
   }
 
-  const setAnswer = (questionIndex, answer) => {
-    console.log("setting answer")
+  const setAnswer = (questionIndex, target) => {
+    const checked = target.checked;
+
     setAnswers({
       ...answers,
-      [questionIndex]: answer,
+      [questionIndex]: checked,
     });
 
     localStorage.setItem("answers", JSON.stringify({
       ...answers,
-      [questionIndex]: answer,
+      [questionIndex]: checked,
     }));
+
+    if (checked) {
+      party.confetti(target, {
+        count: party.variation.range(10, 20),
+        spread: party.variation.range(15, 35),
+        size: party.variation.range(0.5, 0.8),
+      });
+    }
   }
 
   return (
@@ -158,7 +168,7 @@ export default function Home() {
                         <input
                           type="checkbox"
                           checked={answers[`question-${index1}-${index2}`] || false}
-                          onChange={(e) => setAnswer(`question-${index1}-${index2}`, e.target.checked)}
+                          onChange={(e) => setAnswer(`question-${index1}-${index2}`, e.target)}
                         />
                       </div>
                     )}
