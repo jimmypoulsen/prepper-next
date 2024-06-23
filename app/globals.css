@@ -67,5 +67,24 @@
       checked:hover:bg-orange-600
     ;
   }
+
+  .loader {
+    @apply border-2 border-orange-500 border-r-transparent;
+
+    animation: infinite spin .6s;
+    height: 64px;
+    width: 64px;
+    border-radius: 100px;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(359deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
 }
 

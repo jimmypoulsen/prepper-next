@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import party from "party-js";
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
   const [step, setStep] = useState(0);
   const [householdSize, setHouseholdSize] = useState("");
   const [answers, setAnswers] = useState({});
@@ -23,6 +24,8 @@ export default function Home() {
       if (savedHouseholdSize) {
         setStep(1);
       }
+
+      setLoading(false);
     }
   }, []);
 
@@ -121,7 +124,11 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col items-center gap-3 w-full md:w-1/3 mx-auto mt-12">
-        {step === 0 && (
+        {loading && (
+          <div className="loader"></div>
+        )}
+
+        {!loading && step === 0 && (
           <div className="flex flex-col items-center w-full gap-2">
             <label
               htmlFor="household"
@@ -147,7 +154,7 @@ export default function Home() {
           </div>
         )}
 
-        {step === 1 && (
+        {!loading && step === 1 && (
           <>
             {questionsArray.map((questions, index1) => (
               <div key={index1} className="flex flex-col gap-2 w-full">
