@@ -1,4 +1,6 @@
 import { Inter, Readex_Pro } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import "./globals.css";
 
 const inter = Inter({
@@ -24,6 +26,7 @@ export default function RootLayout({ children }) {
       <body>
         <main id="app">
           {children}
+          <SpeedInsights />
         </main>
       </body>
     </html>
