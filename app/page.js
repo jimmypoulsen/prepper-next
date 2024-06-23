@@ -185,6 +185,12 @@ export default function Home() {
             ))}
           </>
         )}
+
+        <p className="leading-loose text-center mt-4">
+          Prepper Tjeklisten er udarbejdet baseret på anbefalinger fra Beredskabsforbundet.
+
+          Læs mere på <a href="https://beredskab.dk/bliv-klogere/klar-dig-selv-i-3-doegn" target="_blank" className="text-orange-500 hover:text-orange-700">Beredskabsforbundets hjemmeside</a>.
+        </p>
       </div>
     </div>
   );
