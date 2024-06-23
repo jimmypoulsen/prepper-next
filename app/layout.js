@@ -44,6 +44,7 @@ export default function RootLayout({ children }) {
                   alt="GitHub"
                   width={24}
                   height={24}
+                  className="hover:brightness-200 hover:scale-110 transition-all"
                 />
               </a>
 
@@ -58,6 +59,7 @@ export default function RootLayout({ children }) {
                   alt="X"
                   width={24}
                   height={24}
+                  className="hover:brightness-200 hover:scale-110 transition-all"
                 />
               </a>
             </div>
