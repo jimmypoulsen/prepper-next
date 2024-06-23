@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import party from "party-js";
 
 export default function Home() {
@@ -113,12 +114,7 @@ export default function Home() {
   }
 
   return (
-    <div className="container">
-      <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold italic text-center">
-        PREPPER
-        TJEKLISTEN
-      </h1>
-
+    <>
       <div className="mx-auto text-center font-normal mt-12 bg-orange-500 text-orange-950 p-4 md:w-1/2 -skew-x-12">
         Svært ved at danne dig et overblik over din beredskabsliste? Start her!
       </div>
@@ -187,11 +183,13 @@ export default function Home() {
         )}
 
         <p className="leading-loose text-center mt-4">
-          Prepper Tjeklisten er udarbejdet baseret på anbefalinger fra Beredskabsforbundet.
+          Prepper Tjeklisten er udarbejdet baseret på anbefalinger fra Beredskabsstyrelsen.
 
-          Læs mere på <a href="https://beredskab.dk/bliv-klogere/klar-dig-selv-i-3-doegn" target="_blank" className="text-orange-500 hover:text-orange-700">Beredskabsforbundets hjemmeside</a>.
+          Læs mere på <a href="https://www.brs.dk/da/forberedt/" target="_blank" className="text-orange-500 hover:text-orange-700">Beredskabsstyrelsens hjemmeside</a>.
         </p>
+
+        <Link href="/informativt-indhold" className="btn btn-primary mt-4">Informativt indhold</Link>
       </div>
-    </div>
+    </>
   );
 }

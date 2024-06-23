@@ -26,7 +26,15 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${readex_pro.variable}`}>
       <body>
         <main id="app">
-          {children}
+          <div className="container">
+            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold italic text-center">
+              PREPPER
+              TJEKLISTEN
+            </h1>
+
+            {children}
+          </div>
+
           <footer className="flex flex-col items-center gap-2 justify-center text-sm text-gray-500 mt-6 p-6">
             <p>
               {new Date().getFullYear()} Prepper Tjeklisten
